@@ -1,0 +1,6 @@
+create database etender;
+use etender;
+create table user(emailid varchar(50) Null,password varchar(100),company varchar(30),director varchar(20),phone bigint,address varchar(50),role char(5),Primary Key(emailid));
+create table projects(projectid varchar(20), projectname varchar(40),projectdesc varchar(100),tenderclose date,emailid varchar(50) Null,tenderopen date,Foreign Key(emailid) References user(emailid),Primary Key(projectid));
+create table projectuserbid (projectid varchar(20),emailid varchar(50),bidamount varchar(100),Foreign Key(emailid) References user(emailid),Foreign Key (projectid) References projects(projectid));
+insert into user(emailid,password,role) values ('admin','Pdix9aVIJ2cMuXRkYpCdEQ==','admin');
